@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Luke Logan</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+
+    <h1>Luke Logan</h1>
+
+    <nav class="navbar">
+      <ul>
+        <li class="navbar-active">
+          <a href="">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="HCompress">
+            HCompress
+          </a>
+        </li>
+
+        <li>
+          <a href="BOSSA">
+            BOSSA
+          </a>
+        </li>
+
+        <li>
+          <a href="PotholeDetectives">
+            Pothole Detectives
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <article id="Background" class="overview">
+      <h2>Background</h2>
+
+      <div class="overview-body">
+        <div class="overview-text">
+          <p>
+            Overall, my career aspiration is to be either a researcher at a national laboratory or a
+            company. My main research interest is in building software that can make scientific and
+            cloud-based applications portable, performant, and programmable. Modern scientific and
+            cloud-based applications require the efforts of multiple computers in order to run
+            efficiently and to store all of their data. Furthermore, these applications are confined
+            by data access speeds, requiring the intelligent use of storage and memory systems.
+            However, building distributed applications while considering the underlying architecture
+            of the system makes them difficult to program and maintain, especially when hardware is
+            diverse and rapidly changing.
+          </p>
+
+          <p>
+            Other interests of mine are algorithm design and data science, which are both skills
+            that are useful to parallel/distributed processing research. I have been involved in
+            numerous projects surrounding parallel processing, algorithm design, and data science.
+            The three most interesting ones are described below.
+          </p>
+        </div>
+
+        <figure class="overview-img">
+          <img src="assets/img/my-picture.jpg" alt="An image of Luke Logan"/>
+          <figcaption>Me</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article id="Projects">
+      <h2>Projects</h2>
+
+      <nav class="project-nav">
+        <ul>
+          <li>
+            <a href="HCompress">
+              <h3>HCompress</h3>
+              <figure>
+                <img src="assets/img/hcompress/HCompress.png" alt="HCompress diagram"/>
+                <figcaption> HCompress diagram. </figcaption>
+              </figure>
+              <p>
+                Modern scientific applications are bounded by data access speeds. HCompress is a C++
+                library for caching data in a heterogeneous distributed environment. It employs a
+                dynamic and adaptive compression system for matching compression libraries to
+                different storage devices using reinforcement learning. We found that HCompress
+                improved the performance of real-world workloads by as much as 700% relative to
+                other modern storage solutions.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="BOSSA">
+              <h3>BOSSA</h3>
+              <figure>
+                <img src="assets/img/bossa/quadrants.png" alt="BOSSA Platform figure" />
+                <figcaption> BOSSA Platform </figcaption>
+              </figure>
+              <p>
+                The FCC estimated that 10,000 lives could be saved annually if commercial mobile
+                radio service (CMRS) providers were able to find the indoor location of emergency
+                callers in a multi-story building. The BOSSA Platform is a proof-of-concept system
+                that can find the indoor location of a cell phone using signals from Bluetooth Low
+                Energy (BLE) beacons and a backend server for calculating indoor location based off
+                of signal strengths. In our trials, we were able to estimate the floor the caller
+                was on 100% of the time as well as the position on the floor to within 10 meters of
+                accuracy.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="PotholeDetectives">
+              <h3>Pothole Detectives (PhDs)</h3>
+              <figure>
+                <img src="assets/img/potholes/route.png" alt="Example pothole filling route"/>
+                <figcaption> Pothole route </figcaption>
+              </figure>
+              <p>
+                Pothole damage costs US drivers $3 billion per year. In order to combat this
+                problem, driverless pothole-filling robots will become reality. In this project, we
+                developed a routing algorithm based off of a combination of the Chinese Postman
+                Problem and the Traveling Salesman Problem. We used OpenStreetMap and Geopandas to
+                obtain graphs of the wards of Chicago and used the Chicago Data Portal to get the
+                set of active pothole reports in Chicago.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </article>
+
+    <footer class="navbar">
+      <ul>
+        <li>
+          <a href="https://github.com/lukemartinlogan/">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/lukemartinlogan">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+  </body>
+</html>

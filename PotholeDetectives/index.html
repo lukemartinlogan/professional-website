@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pothole Detectives</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+
+    <h1>Pothole Detectives (PhDs)</h1>
+
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="../">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="../HCompress">
+            HCompress
+          </a>
+        </li>
+
+        <li>
+          <a href="../BOSSA">
+            BOSSA
+          </a>
+        </li>
+
+        <li class="navbar-active">
+          <a href="../PotholeDetectives">
+            Pothole Detectives
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="overview">
+        <h2 class="project-h">Overview</h2>
+        <div class="overview-body">
+          <div class="overview-text">
+            <p class="project-p">
+              Pothole damage costs US drivers $3 billion annually. In order to combat this problem,
+              driverless pothole-filling robots will become reality. In order to prepare for this, our
+              team designed a routing algorithm to decide which blocks in Chicago to visit in order to
+              fill potholes effectively, a machine-learning algorithm to predict the number of
+              potholes that would be formed in a ward of Chicago over a period of time (which can be
+              used to determine the number of robots that would be necessary to counteract more
+              potholes from forming), and a website to visualize the results of the routing algorithm
+              and the pothole count predictor.
+            </p>
+
+            <p class="project-p">
+              In this project, I was responsible for the design and implementation of the routing
+              algorithm. The algorithm is implemented in Python and uses OSMNX to get graphs of
+              Chicago, Geopandas to divide the graph of Chicago into wards using ward boundaries, and
+              the Chicago Data Portal to get active pothole locations. The algorithm divides the graph
+              of wards of Chicago into blocks, assigns potholes to blocks, and then ranks each block
+              based off of the number of pothole reports in the block, the amount of time it would
+              take to fill every pothole in the block, and the distance the block is from the facility
+              a robot is located in. The route is decided using a combination of the Traveling
+              Salesman Problem (TSP), Binary Programming, and the Chinese Postman Problem (CPP).
+            </p>
+          </div>
+
+          <figure class="overview-img">
+            <img src="../assets/img/potholes/route.png" alt="Example pothole filling route"/>
+            <figcaption>Me</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="overview">
+        <h2 class="project-h">Scenario</h2>
+        <p class="project-p">
+          We have a weighted, directed multigraph of a ward in Chicago. The edges of this
+          graph are roads and the vertices are intersections. The ward has potholes as well as
+          robots to fill those potholes. Each robot can travel a certain maximum speed and are
+          assigned to designated facilities in the ward. Ie, each robot is assigned to a
+          vertex in the graph of the ward. The robot can be outside for a certain period of
+          time before traffic becomes an issue, but the robots cannot travel faster than the
+          speed limit on any particular road. Furthermore, it takes time to fill each pothole
+          in the ward (we assume it's a constant). We want the robots to fill the potholes in
+          the ward for as long as it can be outside without disturbing traffic. Furthermore,
+          we want the robot to return to the facility where it came from when it is done
+          filling potholes.
+        </p>
+      </section>
+
+      <section class="project-section">
+        <h2 class="project-h">Precomputation</h2>
+
+        <ol class="project-phases">
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 1: Make the ward graph strongly connected</h3>
+            <p class="project-p">
+              By default, the graph of a ward is a directed multigraph, and it is not
+              necessarily strongly connected. This means it's possible for the robot to never be
+              able to return to the facility where it came from.
+            </p>
+
+            <p class="project-p">
+              In order to make the graph of the region strongly connected, we follow these steps:
+            </p>
+
+            <ol class="project-ol">
+              <li> Find the set of strongly connected components (SCCs) in the graph </li>
+              <li> For each SCC:
+                <ol class="project-ol">
+                  <li>Find the SCC that is nearest to it</li>
+                  <li>Find the smallest road connecting the two SCCs and make it bidirectional</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 2: Divide the ward into blocks</h3>
+            <p class="project-p">
+              A block is the smallest geographic area that is encompassed entirely by streets.
+              Thus, the set of blocks can be found by computing the cycle basis of the ward graph
+              without considering the direction of the streets. After this, we determine whether
+              or not a cycle is strongly connected while considering the direction of the edges.
+              If it is, we consider the cycle to be a block. Any edges that were not apart of a
+              strongly connected cycle in the cycle basis will be considered blocks.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 3: Chinese Postman Problem</h3>
+            <p class="project-p">
+              If a robot visits a block, we will assume that the robot travels across every single
+              road in the block at least once in order to find potholes that may not have been
+              reported. We will also assume the robot starts and stops at the same spot in the
+              block. This is known as the Chinese Postman Problem. The solution to this problem is
+              to augment the graph of the ward to be Eulerian by adding edges to the graph of the
+              ward. Typically, edges represent single roads, and thus it doesn't make sense to
+              just fabricate new edges. However, edges can also represent a path of connected
+              roads. Thus, we fabricate edges that are equally weighted to the minimum-weight path
+              connecting the two vertices in the edge. The weight of an edge is considered to be
+              its length in meters.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 4: Find the time it takes to travel the roads</h3>
+            <p class="project-p">
+              Each robot can travel a certain maximum speed; however, the robot may not be able to
+              travel that fast due to speed limits. To factor the speed limit, we go to each road
+              in the graph of a ward, take the minimum of the speed limit and the speed of the
+              robot, and then divide the length of the road by that speed. This will be the
+              amount of time it takes for the robot to travel across the road. If the
+              robots have different maximum speeds, then this calculation is performed
+              for each unique maximum speed.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 5: Map potholes to blocks</h3>
+            <p class="project-p">
+              We obtain the set of potholes from the Chicago Data Portal using Pandas. Each
+              pothole has a latitude and longitude in this dataset. We find the vertex that is
+              nearest to this pothole using OSMNX and then find the block that the vertex is
+              contained in. After this, we compute the number of pothole reports in each block and
+              estimate the amount of time it would take to fill all potholes in the block at once.
+              We assume the amount of time it takes to fill a single pothole is a constant (which
+              we set to 15 minutes by default). We also consider the priority of filling potholes
+              in the block to be the number of potholes assigned to that block.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="potholes-routing">
+        <h2 class="project-h">Routing Algorithm</h2>
+        <ol class="project-phases">
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 1: Rank blocks</h3>
+            <p class="project-p">
+              Each block has a priority of being visited; however, we cannot simply visit the
+              highest-priority blocks first. This is because high-priority blocks may be
+              distant from the robot, which would end up wasting a lot of time if we visit
+              them in that order. It's more efficient to visit some lower-priority blocks on
+              the way to higher-priority blocks. Thus, we rank the blocks as a function of
+              priority, the distance the center of the block is from the starting point of the
+              robot, and the amount of time it would take to travel a block. The amount of
+              time to travel a block is the sum of the time it takes to travel every road in
+              the block and the time it takes to fill every pothole in the block.
+            </p>
+
+            <p class="project-p"> The rank is computed as follows: </p>
+
+            <p class="project-p-math">
+              $$
+              \begin{equation*}
+                \text{rank}(priority, dist, TTT) =
+                \begin{cases}
+                    \frac{priority}{\sqrt{TTT}} & dist \leq 500\text{m} \\
+                    \frac{priority}{\sqrt{TTT*\frac{dist}{500}}} & dist > 500\text{m}\\
+                \end{cases}
+            \end{equation*}
+            $$
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 2: Select blocks</h3>
+            <p class="project-p">
+              Each block now has a rank. We want to maximize the total rank of blocks selected
+              under the constraint the robot is not outside for too long. This optimization
+              problem can be phrased in terms of a Binary Integer Program, which we
+              implemented using ConvexPY (CVXPY).
+            </p>
+
+            <p class="project-p"> The optimization problem is as follows: </p>
+
+            <ul class="project-ul-math">
+              <li> \(X\) is a vector of bits that represents whether or not a block has been selected</li>
+              <li> \(R\) is a vector of positive real numbers that represent the rank of a block</li>
+              <li> \(TTT\) is a vector of positive real numbers that represent the amount of time it takes to travel across a block</li>
+              <li> \(MaxTTT\) is the maximum amount of time the robot can be outside</li>
+            </ul>
+
+            <p class="project-p-math">
+              $$ \text{Maximize}\: X*R^T \:\text{such that} $$
+              $$ X*TTT^T \leq MaxTTT $$
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 3: Order blocks</h3>
+            <p class="project-p">
+              After we select the blocks, we must decide the order with which to visit the blocks.
+              First, imagine that we fabricate roads between the blocks. The roads connect the
+              center of each block to the centers of every other block. The length of this road is
+              the Euclidean distance between the centers of the two blocks. We want to find the
+              subset of these fabricated roads to travel across in order to visit every block at
+              least once. This is equivalent to the Traveling Salesman Problem (TSP). To do this,
+              we used a genetic algorithm from a TSP package in Python. Note, we do not actually
+              fabricate those roads, we just compute the distance between the centers of two
+              blocks whenever they get selected by the genetic algorithm. This prevents a
+              substantial memory overhead.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 4: Connect blocks</h3>
+            <p class="project-p">
+              Now that we have the order with which to travel the blocks, we find the path
+              that takes the least amount of time for the robot to travel (considering speed
+              limits). Initially, the robot starts in a facility. Using OSMNX, we find the
+              vertex that is nearest to the facility in the graph of the next block the robot
+              will travel to. We then use Dijkstra's Shortest Path Algorithm to find the
+              minimum-weight path connecting the two vertices. We use travel time as the
+              weight instead of distance. We do this for each block until the last block
+              is connected to the block where the robot facility is located.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Step 5: Remove blocks</h3>
+            <p class="project-p">
+              At this point, we have a route for a single robot to take. This route contains
+              a set of blocks with potholes to fill. We do not want multiple robots visiting
+              the same block, so we remove the set of blocks that this robot will visit from
+              the pool of all blocks. This will guarantee that no two robots attempt to fill
+              potholes in the same block.
+            </p>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="navbar">
+      <ul>
+        <li>
+          <a href="https://github.com/lukemartinlogan/">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/lukemartinlogan">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+
+</html>
