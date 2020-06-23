@@ -71,14 +71,14 @@ h1 { font-size: 2em; }
 h2 { font-size: 1.7em; }
 h3 { font-size: 1.4em; }
 
-p, a, .project-ol li, .project-ul li, .project-ol-math li, .project-ul-math li {
+p, a, .project-ol li, .project-ul li, .project-ol-math li, .project-ul-math li, ul.resume-info-list li, ul.resume-info-set li {
   font-family: "Roboto", "Helvetica", "sans-serif";
   color: #c9c9c9; /* Very light grey */
   font-size: 1.1rem;
   line-height: 1.3;
 }
 
-p {
+p, ul.resume-info-list li, ul.resume-info-set li {
   color: #c9c9c9; /* Very light grey */
   margin-bottom: 1em;
   column-count: 3;
@@ -142,6 +142,36 @@ img, .overview-img, .project-nav figure {
 
 .project-nav figure {
   margin-bottom: 1em;
+}
+
+/* Resume */
+
+section.resume-section {
+  margin-bottom: 4em;
+}
+
+ul.resume-subsections {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: -.75em;
+}
+
+ul.resume-subsections li {
+  flex: 1 1 37.5em;
+  background-color: #242424; /*Dark grey*/
+  min-width: 0em;
+  margin: .75em;
+}
+
+ul.resume-info-list {
+  list-style-type: circle;
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+ul.resume-info-set {
+  margin-left: 1em;
 }
 
 /* Project Phases */
