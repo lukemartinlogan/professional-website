@@ -207,6 +207,13 @@ a.download:hover {
   background-color: #333; /*Medium Grey*/
 }
 
+p.resume-subsection-note {
+  text-align: center;
+  margin-bottom: 0em;
+  line-height: 1;
+  font-size: 1rem;
+}
+
 /* Project Phases */
 
 section.project-section {
