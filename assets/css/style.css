@@ -88,6 +88,10 @@ figure { display: block; }
 
 a { text-decoration: none; }
 
+a.regular-reference {
+  text-decoration: underline;
+}
+
 img, .overview-img, .project-nav figure {
   display: block;
   max-width: 100%;
@@ -106,11 +110,11 @@ img, .overview-img, .project-nav figure {
   padding: .75em; /*12/16px = .75em*/
 }
 
-.navbar li a:hover, footer a:hover {
+.navbar li a:hover, footer a:hover, a.regular-reference:hover {
   color: #4fe2ff; /* Watery Blue */
 }
 
-.navbar .navbar-active a {
+.navbar .navbar-active a, a.regular-reference  {
   color: #02558c; /* Dark Blue */
 }
 
