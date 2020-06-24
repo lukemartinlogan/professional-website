@@ -188,8 +188,23 @@ ul.resume-info-set li:before {
   margin-left: .75em;
 }
 
-#education ul {
+aside.download {
+  display: flex;
+  justify-content: center;
+}
 
+a.download {
+  background-color: #242424; /*Dark grey*/
+  line-height: 1;
+  padding: 1em;
+}
+
+h2.download {
+  margin-bottom: 0em;
+}
+
+a.download:hover {
+  background-color: #333; /*Medium Grey*/
 }
 
 /* Project Phases */
