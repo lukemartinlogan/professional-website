@@ -156,22 +156,20 @@
               $$ tier(S, i, j) = w_1 t_c(S, j) +  S_j/B_i - w_2(S_j/B_i)\frac{r(j)-1}{r(j)} + w_3 t_d(S_j, j) $$
             </p>
 
-            <div>
-              <p class="project-p-math">
-                $$
-                \begin{equation*}
-                  dmsh(S, i, j) = Min
-                  \begin{cases}
-                    tier(S, i, j) & S_j \lt R_i \\
-                    tier(S, i, j) + dmsh(S_j - C_i, i+1, j) & R_i \lt S_j \leq C_i \\
-                    tier(R_i, i, j) + dmsh(S_j - R_i, i+1, j) & C_i \lt S_j \\
-                    dmsh(S, i, j+1) & \\
-                    dmsh(S, i+1, j) & \\
-                  \end{cases}
-              \end{equation*}
+            <p class="project-p-math">
               $$
-              </p>
-            </div>
+              \begin{equation*}
+                dmsh(S, i, j) = Min
+                \begin{cases}
+                  tier(S, i, j) & S_j \lt R_i \\
+                  tier(S, i, j) + dmsh(S_j - C_i, i+1, j) & R_i \lt S_j \leq C_i \\
+                  tier(R_i, i, j) + dmsh(S_j - R_i, i+1, j) & C_i \lt S_j \\
+                  dmsh(S, i, j+1) & \\
+                  dmsh(S, i+1, j) & \\
+                \end{cases}
+            \end{equation*}
+            $$
+            </p>
           </li>
 
           <li class="project-phase">

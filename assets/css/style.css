@@ -240,7 +240,7 @@ li.project-phase {
 }
 
 p.project-p { }
-p.project-p-math {
+p.project-p-math { 
   display:block;
   overflow: auto;
   background-color: #333; /*Medium Grey*/
