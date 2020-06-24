@@ -139,7 +139,7 @@ nav.navbar {
   display: none;
 }
 
-.project-nav li:hover {
+.project-nav li:hover, .resume-subsections li.clickable:hover {
   background-color: #333; /*Medium Grey*/
 }
 
@@ -150,7 +150,7 @@ nav.navbar {
 /* Resume */
 
 section.resume-section {
-  margin-bottom: 4em;
+  margin-bottom: 6em;
 }
 
 ul.resume-subsections {
@@ -160,11 +160,11 @@ ul.resume-subsections {
   margin: -.75em;
 }
 
-ul.resume-subsections li {
-  flex: 1 1 37.5em;
+ul.resume-subsections>li {
+  flex: 1 1 24em;
   background-color: #242424; /*Dark grey*/
-  min-width: 0em;
   margin: .75em;
+  padding: 1em;
 }
 
 ul.resume-info-list {
@@ -175,6 +175,21 @@ ul.resume-info-list {
 
 ul.resume-info-set {
   margin-left: 1em;
+  text-align: center;
+}
+
+ul.resume-info-set li {
+  display: inline;
+}
+
+ul.resume-info-set li:before {
+  content: '\2022';
+  margin-right: 0.75em;
+  margin-left: .75em;
+}
+
+#education ul {
+
 }
 
 /* Project Phases */
