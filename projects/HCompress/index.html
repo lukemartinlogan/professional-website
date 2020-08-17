@@ -76,10 +76,11 @@
             <h3 class="project-phase-h">Distributed Memory and Storage Hierarchy (DMSH)</h3>
             <p class="project-p">
               The DMSH represents the set of storage devices in a distributed system. Storage
-              devices are classified into layers. Each layer can contain multiple storage devices,
-              known as tiers. For example, DRAM is a type of memory device. This would be
-              considered a layer. Every DRAM device in the network will be put into this layer,
-              and each individual device will be a tier in that layer.
+              devices can grouped into tiers, and then into layers. A tier is a set of devices with
+              similar architecture. For example, the set of all RAM devices in the entire
+              distributed system would be in the RAM tier. Layers group devices based on their
+              performance characteristics. For example, RAM-1600Mhz and RAM-3200MHz would be in two
+              separate layers in the RAM tier.
             </p>
           </li>
 
