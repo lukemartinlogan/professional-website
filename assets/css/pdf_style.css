@@ -58,7 +58,7 @@ strong {
   font-weight: 900;
 }
 section {
-  margin-bottom: .8rem;
+  margin-bottom: .6rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -70,13 +70,14 @@ h1 {
 h1, h2 {
   font-family: "Russo One", "Roboto", "Helvetica", "sans-serif";
   color: black;
-  margin-bottom: .8rem;
+  margin-bottom: .6rem;
 }
 h1 { font-size: 2rem; }
 h2 { font-size: 1rem; }
 
 p,li,h3 {
   font-family: "Roboto";
+  line-height: 1.1;
 }
 
 .ul-bullet-inline {
@@ -96,7 +97,7 @@ p,li,h3 {
 }
 
 .project-list-item {
-  margin-bottom: .8rem;
+  margin-bottom: .6rem;
 }
 .skill-item {
   margin-bottom: .8rem;
