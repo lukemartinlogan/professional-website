@@ -26,12 +26,40 @@
             Resume
           </a>
         </li>
+
+        <li>
+          <a href="https://github.com/lukemartinlogan/">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://scholar.google.com/citations?hl=en&user=Ljn7CmYAAAAJ">
+            Google Scholar
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/lukemartinlogan">
+            LinkedIn
+          </a>
+        </li>
       </ul>
     </nav>
 
     <main>
       <section id="education" class="resume-section">
-        <h2>Education</h2>
+        <h2>1. SUMMARY</h2>
+
+        <p class="summary-text">
+          Passionate systems researcher and software engineer seeking agile
+          teams to contribute to improving the programmability, portability,
+          and performance of distributed systems.
+        </p>
+      </section>
+
+      <section id="education" class="resume-section">
+        <h2>2. EDUCATION</h2>
         <ul class="resume-subsections">
           <li class="clickable">
             <a href="../assets/pdf/bsamat-diploma.pdf">
@@ -60,129 +88,160 @@
               </p>
             </a>
           </li>
+
+          <li>
+              <h3>PhD. Computer Science</h3>
+              <ul class="resume-info-list">
+                <li>ILLINOIS INSTITUTE OF TECHNOLOGY; Chicago, IL</li>
+                <li>Exp. 2024</li>
+                <li>Current GPA: 3.82</li>
+              </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="work" class="resume-section">
+        <h2>3. RESEARCH PROJECTS</h2>
+        <ul class="resume-subsections">
+
+          <li>
+            <header>
+              <h3>LabStor</h3>
+              <h3>Spring 2022</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Linux I/O stack suffers from performance and programmability issues in HPC/Cloud</li>
+              <li>
+                <a href="https://github.com/scs-lab/labstor" target="_blank" class="regular-reference">Designed/implemented</a>
+                a platform (18K C/C++) for easily developing new I/O stacks
+              </li>
+              <li>Provides tools and APIs for bypassing overheads and monitoring application I/O patterns</li>
+              <li>I/O stacks developed in LabStor improve I/O speed by up to 60% in a distributed setting</li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>pMEMCPY</h3>
+              <h3>Summer 2021</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Existing I/O libraries are complex and don’t utilize special APIs for persistent memory (PMEM)</li>
+              <li>
+                <a href="https://github.com/lukemartinlogan/pmemcpy" target="_blank">Designed/implemented</a>
+                a parallel I/O library (C/C++) for storing data structures in PMEM
+              </li>
+              <li>pMEMCPY is up to 2x faster than other popular parallel I/O libraries and reduces LOC by 92%</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="resume-section">
+        <h2>4. SELECTED PUBLICATIONS</h2>
+
+        <ul class="resume-subsections">
+          <li class="summary-text">
+            <strong>L. Logan</strong>, J. Cernuda Garcia, J. Lofstead, X.-H. Sun, A. Kougkas.
+            “LabStor: A Modular and Extensible Platform for Developing
+            High-Performance, Customized I/O Stacks in Userspace”. The 2022
+            International Conference for High Performance Computing, Networking,
+            Storage, and Analysis (SC'22), November 14–17, 2022 (to appear).
+          </li>
+
+          <li class="summary-text">
+            <strong>L. Logan</strong>, J. Lofstead, S. Levy, P. Widener, X-H. Sun, A. Kougkas.
+            “pMEMCPY: a simple, lightweight, and portable I/O library for storing
+            data in persistent memory.” The 2021 IEEE International Conference on
+            Cluster Computing (CLUSTER’21), September 7-10, 2021, Virtual Meeting.
+            IEEE, 2021. DOI: 10.1109/Cluster48925.2021.00098.
+          </li>
+        </ul>
+      </section>
+
+      <section class="resume-section">
+        <h2>5. TEACHING EXPERIENCE</h2>
+
+        <ul class="resume-subsections">
+          <li class="summary-text">
+              <p>Teaching Assistant for Discrete Mathematics</p>
+              <p>Spring 2022</p>
+          </li>
+
+          <li class="summary-text">
+              <p>Student Project Supervisor for Advanced Operating Systems</p>
+              <p>Fall 2020</p>
+          </li>
+
+          <li class="summary-text">
+              <p>Scalable Computing Software Laboratory Technical Trainer</p>
+              <p>Fall 2020</p>
+          </li>
         </ul>
       </section>
 
       <section id="skills" class="resume-section">
-        <h2>Skills</h2>
+        <h2>6. SKILLS</h2>
         <ul class="resume-subsections">
           <li>
-            <h3>Programming Languages</h3>
+            <h3>Programming</h3>
             <ul class="resume-info-set">
               <li>C/C++</li>
               <li>Python</li>
+              <li>MPI</li>
+              <li>OpenMP</li>
+              <li>Linux Kernel Modules</li>
+              <li>PMDK</li>
+              <li>SPDK</li>
+              <li>DPDK</li>
+              <li>HDF5</li>
+              <li>Adios</li>
+              <li>TensorFlow</li>
+              <li>PyTorch</li>
+              <li>SciPy</li>
+              <li>Pandas</li>
+              <li>Keras</li>
               <li>Bash</li>
               <li>Java</li>
               <li>R</li>
               <li>SQL</li>
               <li>Android</li>
-              <li>Matlab</li>
-              <li>HTML/CSS</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
             </ul>
           </li>
 
           <li>
             <h3>Software</h3>
             <ul class="resume-info-set">
-              <li>Windows</li>
-              <li>Ubuntu</li>
-              <li>Fedora</li>
-              <li>Microsoft Word/Powerpoint</li>
               <li>Git</li>
+              <li>Spack</li>
               <li>CMake</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section id="work" class="resume-section">
-        <h2>Work / Projects</h2>
-        <ul class="resume-subsections">
-          <li>
-            <header>
-              <h3>HCompress</h3>
-              <h3>Summer 2019</h3>
-            </header>
-            <ul class="resume-info-list">
-              <li>Designed/implemented a
-                <a class="regular-reference" href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic compression system</a>
-                in C++
-              </li>
-              <li>Integrated this system into tool that buffers data in distributed storage systems</li>
-              <li>Improved performance of buffering tool by 700%</li>
-              <li>Co-author to <a class="regular-reference" href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a> in IPDPS'20</li>
-            </ul>
-          </li>
-
-          <li>
-            <header>
-              <h3>The BOSSA Platform</h3>
-              <h3>2018 - 2020</h3>
-            </header>
-            <ul class="resume-info-list">
-              <li>Improved the algorithm for estimating the position of a phone in a multi-story building</li>
-              <li>Created an
-                <a class="regular-reference" href="https://github.com/lukemartinlogan/bossa-test-app">Android app</a>
-                  to poll bluetooth beacons and record their signal strengths
-              </li>
-              <li>Created
-                <a class="regular-reference" href="https://github.com/lukemartinlogan/bossa-test-algorithm">Python scripts</a>
-                to download and analyze the bluetooth signals (SciPy, Pandas)
-              </li>
-              <li>Algorithm predicts the floor the user is on with 100% accuracy</li>
-              <li>Main author to
-                <a class="regular-reference" href="https://ieeexplore-ieee-org.ezproxy.gl.iit.edu/document/9101391">publication</a>
-                and presenter in IEEE CQR'20
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <header>
-              <h3>Pothole Detectives</h3>
-              <h3>Spring 2019</h3>
-            </header>
-            <ul class="resume-info-list">
-              <li>Designed/implemented an algorithm to find the best route to fill potholes in Chicago</li>
-              <li>Used OpenStreetMap to create a graph of Chicago</li>
-              <li>Used Python to find the route using reports from the Chicago Data Portal</li>
-              <li>Presented at ChiHackNight</li>
-            </ul>
-          </li>
-
-          <li>
-            <header>
-              <h3>Teaching Assistant for Computer Organization/Assembly Language</h3>
-              <h3>Spring 2017</h3>
-            </header>
-            <ul class="resume-info-list">
-              <li>Supervised labs and held office hours</li>
-              <li>Graded lab assignments</li>
+              <li>CLion</li>
+              <li>Qemu</li>
+              <li>MongoDB</li>
+              <li>Redis</li>
+              <li>Spark</li>
+              <li>Google Cloud/Colab</li>
+              <li>Chameleon Cloud</li>
+              <li>AWS</li>
+              <li>VirtualBox</li>
+              <li>Hadoop</li>
             </ul>
           </li>
         </ul>
       </section>
 
       <section id="awards" class="resume-section">
-        <h2>Awards</h2>
+        <h2>7. ACTIVITIES, HONORS, and AWARDS</h2>
         <ul class="resume-subsections">
           <li>
             <ul class="resume-info-list">
-              <li>Dean's List at IIT - (2016-2020)</li>
+              <li>Web Administrator at Scalable Computing Software Laboratory (2020 - 2022)</li>
+              <li>Student Volunteer at Conference for HPC, Networking, Storage, and Analysis (SC) (2020 - 2021)</li>
+              <li>Dean’s List at IIT (2016 - 2020)</li>
               <li>Eagle Scout - (2016)</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section id="personal" class="resume-section">
-        <h2>Personal</h2>
-        <ul class="resume-subsections">
-          <li>
-            <ul class="resume-info-list">
-              <li>Handbell Choir for St Andrew United Methodist Church (UMC) - (2008-2019)</li>
-              <li>Assistant leader for confirmation class at St. Andrew UMC - (2016)</li>
-              <li>Managed the construction of fence for local forest preserve - (2016)</li>
             </ul>
           </li>
         </ul>
@@ -200,6 +259,12 @@
         <li>
           <a href="https://github.com/lukemartinlogan/">
             Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://scholar.google.com/citations?hl=en&user=Ljn7CmYAAAAJ">
+            Google Scholar
           </a>
         </li>
 

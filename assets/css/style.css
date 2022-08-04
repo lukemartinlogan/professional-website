@@ -70,7 +70,7 @@ h1 { font-size: 2em; margin-bottom: .25em; }
 h2 { font-size: 1.7em; margin-bottom: .75em; }
 h3 { font-size: 1.4em; margin-bottom: .75em; }
 
-p, a, .project-ol li, .project-ul li, .project-ol-math li, .project-ul-math li, ul.resume-info-list li, ul.resume-info-set li {
+p, a, .project-ol li, .project-ul li, .project-ol-math li, .project-ul-math li, ul.resume-info-list li, ul.resume-info-set li, .summary-text {
   font-family: "Roboto", "Helvetica", "sans-serif";
   color: #c9c9c9; /* Very light grey */
   font-size: 1.1rem;
@@ -82,6 +82,9 @@ p, ul.resume-info-list li, ul.resume-info-set li {
   margin-bottom: 1em;
   column-count: 3;
   column-width: 37.5em;
+}
+ul.resume-info-set:first-child:before {
+    content: none;
 }
 
 figure { display: block; }
@@ -125,7 +128,7 @@ nav.navbar {
 
 /*Overview, Project Navigation*/
 
-.overview, .project-nav li, li.project-phase {
+.overview, .project-nav li, li.project-phase, .summary-text {
   background-color: #242424; /*Dark grey*/
   padding: .5em;
   margin-left: auto;
@@ -154,7 +157,7 @@ nav.navbar {
 /* Resume */
 
 section.resume-section {
-  margin-bottom: 6em;
+  margin-bottom: 4em;
 }
 
 ul.resume-subsections {
@@ -171,7 +174,8 @@ ul.resume-subsections>li {
   padding: 1em;
 }
 
-ul.resume-info-list {
+
+ul.resume-info-list  {
   list-style-type: circle;
   list-style-position: outside;
   margin-left: 1em;
@@ -240,7 +244,7 @@ li.project-phase {
 }
 
 p.project-p { }
-p.project-p-math { 
+p.project-p-math {
   display:block;
   overflow: auto;
   background-color: #333; /*Medium Grey*/
@@ -258,6 +262,13 @@ ol.project-ol, ol.project-ol-math {
 }
 ul.project-ul-math, ol.project-ol-math {
   margin-bottom: 2em;
+}
+
+.summary-text   {
+  max-width: 50rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*500px/16px = 30.625em*/
@@ -286,15 +297,26 @@ ul.project-ul-math, ol.project-ol-math {
 
     /*Project Navigation*/
 
-    .project-nav ul {
+    /*.project-nav ul {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 1em;
+    }*/
+    .project-nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: top;
+      flex-wrap: wrap;
+    }
+    .project-nav ul li {
+      max-width: 30rem;
+      margin: 1rem;
+      padding: 1rem;
     }
 
     /*Articles*/
     .overview { max-width: 100%; }
-    .overview-body { display: flex; flex-flow: row-reverse; }
+    .overview-body { display: flex; flex-flow: row-reverse; padding-bottom: 1rem; }
     .overview-text { flex: 1 1 37.5em; }
     .overview-img { flex: 1 1 20em; margin-right: 1em; max-width: 20em; }
   }
