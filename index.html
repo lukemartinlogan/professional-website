@@ -53,11 +53,10 @@
       <div class="overview-body">
         <div class="overview-text">
           <p>
-            I am a PhD student with the Scalable Computing Software (SCS)
-            Laboratory at the Illinois Institute of Technology. My research aims
+            I am an HPC software engineer and PhD student at Illinois Tech. My research aims
             to make distributed storage and operating systems more programmable,
             portable, and performant. HPC and machine learning applications
-            perform massive amounts of I/O, which puts extreme stress on storage
+            perform massive data movements, putting extreme stress on storage
             systems to satisfy a wide variety of conflicting I/O and
             computational objectives. However, with rapidly evolving storage
             hardware and software, the design of these systems need to be
@@ -85,10 +84,34 @@
       <nav class="project-nav">
         <ul>
           <li>
+            <a href="http://www.cs.iit.edu/~scs/assets/projects/Hermes/Hermes.html">
+              <h3>Hermes</h3>
+              <figure>
+                <img src="assets/img/Hermes/Hermes.png" alt="Hermes diagram"/>
+                <figcaption> Hermes diagram. </figcaption>
+              </figure>
+              <p>
+                Large-scale applications such as simulation, deep learning,
+                and data analytics produce and analyze massive volumes of
+                data. These data movements are typically the main bottleneck
+                of these applications. To reduce the gap between computation
+                and storage, HPC and Cloud sites have integrated fast tiers
+                of storage, known as the Deep Memory and Storage Hierarchy (DMSH).
+                However, efficiently utilizing the DMSH is complex, especially
+                when heterogeneity is considered. Hermes is a new I/O buffering
+                platform that places, shuffles, and migrates data within the
+                DMSH automatically. Hermes is a $4 Million dollar NSF project,
+                where I was the lead engineer and primarily responsible for the
+                implementation, testing / debugging, and evaluation of Hermes.
+              </p>
+            </a>
+          </li>
+
+          <li>
             <a href="https://github.com/scs-lab/labstor">
               <h3>LabStor</h3>
               <figure>
-                <img src="assets/img/LabStor/LabStorComponents.png" alt="HCompress diagram"/>
+                <img src="assets/img/LabStor/LabStorComponents.png" alt="LabStor diagram"/>
                 <figcaption> LabStor diagram. </figcaption>
               </figure>
               <p>
