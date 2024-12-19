@@ -1,297 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>Luke Logan</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Luke Logan</title>
+    <meta name="viewport"
+      content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
 
-<body>
+  <body>
 
-  <h1>Luke Logan</h1>
+    <h1>Luke Logan</h1>
 
-  <nav class="navbar">
-    <ul>
-      <li>
-        <a href="../">
-          Home
-        </a>
-      </li>
-
-      <li class="navbar-active">
-        <a href="">
-          Resume
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <main>
-    <section id="education" class="resume-section">
-      <h2>Education</h2>
-      <ul class="resume-subsections">
-        <li class="clickable">
-          <a href="../assets/pdf/bsamat-diploma.pdf">
-            <h3>Bachelor of Science in Applied Mathematics</h3>
-            <ul class="resume-info-list">
-              <li>ILLINOIS INSTITUTE OF TECHNOLOGY; Chicago, IL</li>
-              <li>Spring 2020</li>
-              <li>GPA: 3.76</li>
-            </ul>
-            <p class="resume-subsection-note">
-              (Click to view PDF of diploma)
-            </p>
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="../">
+            Home
           </a>
         </li>
 
-        <li class="clickable">
-          <a href="../assets/pdf/mcs-diploma.pdf">
-            <h3>Master of Computer Science</h3>
+        <li class="navbar-active">
+          <a href>
+            Resume
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="education" class="resume-section">
+        <h2>Education</h2>
+        <ul class="resume-subsections">
+          <li class="clickable">
+            <a href="../assets/pdf/bsamat-diploma.pdf">
+              <h3>Bachelor of Science in Applied Mathematics</h3>
+              <ul class="resume-info-list">
+                <li>ILLINOIS INSTITUTE OF TECHNOLOGY; Chicago, IL</li>
+                <li>Spring 2020</li>
+                <li>GPA: 3.76</li>
+              </ul>
+              <p class="resume-subsection-note">
+                (Click to view PDF of diploma)
+              </p>
+            </a>
+          </li>
+
+          <li class="clickable">
+            <a href="../assets/pdf/mcs-diploma.pdf">
+              <h3>Master of Computer Science</h3>
+              <ul class="resume-info-list">
+                <li>ILLINOIS INSTITUTE OF TECHNOLOGY; Chicago, IL</li>
+                <li>Spring 2020</li>
+                <li>GPA: 3.66</li>
+              </ul>
+              <p class="resume-subsection-note">
+                (Click to view PDF of diploma)
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <h3>PhD. Computer Science</h3>
             <ul class="resume-info-list">
               <li>ILLINOIS INSTITUTE OF TECHNOLOGY; Chicago, IL</li>
-              <li>Spring 2020</li>
-              <li>GPA: 3.66</li>
+              <li>Spring 2022</li>
+              <li>GPA: 3.82</li>
             </ul>
-            <p class="resume-subsection-note">
-              (Click to view PDF of diploma)
-            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="skills" class="resume-section">
+        <h2>Skills</h2>
+        <ul class="resume-subsections">
+          <li>
+            <h3>Programming Languages</h3>
+            <ul class="resume-info-set">
+              <li>C/C++</li>
+              <li>MPI</li>
+              <li>Linux Kernel Modules</li>
+              <li>Python</li>
+              <li>Bash</li>
+              <li>Java</li>
+              <li>R</li>
+              <li>SQL</li>
+              <li>Android</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Javascript</li>
+            </ul>
+          </li>
+
+          <li>
+            <h3>Software</h3>
+            <ul class="resume-info-set">
+              <li>Git</li>
+              <li>Spack</li>
+              <li>CMake</li>
+              <li>Qemu</li>
+              <li>PMDK</li>
+              <li>SPDK</li>
+              <li>DAOS</li>
+              <li>MongoDB</li>
+              <li>OrangeFS</li>
+              <li>Redis</li>
+              <li>Memcached</li>
+              <li>Spark</li>
+              <li>Chameleon Cloud</li>
+              <li>Google Cloud</li>
+              <li>Google Collab</li>
+              <li>Amazon Web Serivces</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="work" class="resume-section">
+        <h2>Work / Projects</h2>
+        <ul class="resume-subsections">
+
+          <li>
+            <header>
+              <h3>MegaMmap</h3>
+              <h3>Fall 2024</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Memory capacity limits are being reached</li>
+              <li>
+                <a href="https://github.com/grc-iit/mega_mmap" target="_blank"
+                  class="regular-reference">Designed/implemented</a>
+                a system for presenting massive, distributed datasets as if in
+                memory
+              </li>
+              <li>Leverages storage tiering and prefetching to effectively
+                expand memory capacity</li>
+              <li>Can use up to 2.6x less DRAM while maintaining competitive
+                speed</li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>LabStor</h3>
+              <h3>Spring 2022</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Designed/implemented a
+                <a class="regular-reference"
+                  href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic
+                  compression
+                  system</a>
+                in C++
+              </li>
+              <li>Integrated this system into tool that buffers data in
+                distributed storage systems</li>
+              <li>Improved performance of buffering tool by 700%</li>
+              <li>Co-author to <a class="regular-reference"
+                  href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a>
+                in IPDPS'20</li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>Apollo</h3>
+              <h3>Spring 2022</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Designed/implemented a
+                <a class="regular-reference"
+                  href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic
+                  compression
+                  system</a>
+                in C++
+              </li>
+              <li>Integrated this system into tool that buffers data in
+                distributed storage systems</li>
+              <li>Improved performance of buffering tool by 700%</li>
+              <li>Co-author to <a class="regular-reference"
+                  href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a>
+                in IPDPS'20</li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>HCompress</h3>
+              <h3>Summer 2019</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Designed/implemented a
+                <a class="regular-reference"
+                  href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic
+                  compression
+                  system</a>
+                in C++
+              </li>
+              <li>Integrated this system into tool that buffers data in
+                distributed storage systems</li>
+              <li>Improved performance of buffering tool by 700%</li>
+              <li>Co-author to <a class="regular-reference"
+                  href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a>
+                in IPDPS'20</li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>The BOSSA Platform</h3>
+              <h3>2018 - 2020</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Improved the algorithm for estimating the position of a phone
+                in a multi-story building</li>
+              <li>Created an
+                <a class="regular-reference"
+                  href="https://github.com/lukemartinlogan/bossa-test-app">Android
+                  app</a>
+                to poll bluetooth beacons and record their signal strengths
+              </li>
+              <li>Created
+                <a class="regular-reference"
+                  href="https://github.com/lukemartinlogan/bossa-test-algorithm">Python
+                  scripts</a>
+                to download and analyze the bluetooth signals (SciPy, Pandas)
+              </li>
+              <li>Algorithm predicts the floor the user is on with 100%
+                accuracy</li>
+              <li>Main author to
+                <a class="regular-reference"
+                  href="https://ieeexplore-ieee-org.ezproxy.gl.iit.edu/document/9101391">publication</a>
+                and presenter in IEEE CQR'20
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>Pothole Detectives</h3>
+              <h3>Spring 2019</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Designed/implemented an algorithm to find the best route to
+                fill potholes in Chicago</li>
+              <li>Used OpenStreetMap to create a graph of Chicago</li>
+              <li>Used Python to find the route using reports from the Chicago
+                Data Portal</li>
+              <li>Presented at ChiHackNight</li>
+            </ul>
+          </li>
+
+          <li>
+            <header>
+              <h3>Teaching Assistant for Computer Organization/Assembly
+                Language</h3>
+              <h3>Spring 2017</h3>
+            </header>
+            <ul class="resume-info-list">
+              <li>Supervised labs and held office hours</li>
+              <li>Graded lab assignments</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="awards" class="resume-section">
+        <h2>Awards</h2>
+        <ul class="resume-subsections">
+          <li>
+            <ul class="resume-info-list">
+              <li>Dean's List at IIT - (2016-2020)</li>
+              <li>Eagle Scout - (2016)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="personal" class="resume-section">
+        <h2>Personal</h2>
+        <ul class="resume-subsections">
+          <li>
+            <ul class="resume-info-list">
+              <li>Handbell Choir for St Andrew United Methodist Church (UMC) -
+                (2008-2019)</li>
+              <li>Assistant leader for confirmation class at St. Andrew UMC -
+                (2016)</li>
+              <li>Managed the construction of fence for local forest preserve -
+                (2016)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <aside class="download">
+      <a class="download" href="../assets/pdf/Luke-Logan-resume.pdf" download>
+        <h2 class="download">Download Resume PDF</h2>
+      </a>
+    </aside>
+
+    <footer class="navbar">
+      <ul>
+        <li>
+          <a href="https://github.com/lukemartinlogan/">
+            Github
           </a>
         </li>
 
         <li>
-          <h3>PhD. Computer Science</h3>
-          <ul class="resume-info-list">
-            <li>ILLINOIS INSTITUTE OF TECHNOLOGY; Chicago, IL</li>
-            <li>Spring 2022</li>
-            <li>GPA: 3.82</li>
-          </ul>
+          <a href="https://www.linkedin.com/in/lukemartinlogan">
+            LinkedIn
+          </a>
         </li>
       </ul>
-    </section>
-
-    <section id="skills" class="resume-section">
-      <h2>Skills</h2>
-      <ul class="resume-subsections">
-        <li>
-          <h3>Programming Languages</h3>
-          <ul class="resume-info-set">
-            <li>C/C++</li>
-            <li>MPI</li>
-            <li>Linux Kernel Modules</li>
-            <li>Python</li>
-            <li>Bash</li>
-            <li>Java</li>
-            <li>R</li>
-            <li>SQL</li>
-            <li>Android</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Javascript</li>
-          </ul>
-        </li>
-
-        <li>
-          <h3>Software</h3>
-          <ul class="resume-info-set">
-            <li>Git</li>
-            <li>Spack</li>
-            <li>CMake</li>
-            <li>Qemu</li>
-            <li>PMDK</li>
-            <li>SPDK</li>
-            <li>DAOS</li>
-            <li>MongoDB</li>
-            <li>OrangeFS</li>
-            <li>Redis</li>
-            <li>Memcached</li>
-            <li>Spark</li>
-            <li>Chameleon Cloud</li>
-            <li>Google Cloud</li>
-            <li>Google Collab</li>
-            <li>Amazon Web Serivces</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <section id="work" class="resume-section">
-      <h2>Work / Projects</h2>
-      <ul class="resume-subsections">
-
-        <li>
-          <header>
-            <h3>MegaMmap</h3>
-            <h3>Fall 2024</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Designed/implemented a
-              <a class="regular-reference" href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic compression
-                system</a>
-              in C++
-            </li>
-            <li>Integrated this system into tool that buffers data in distributed storage systems</li>
-            <li>Improved performance of buffering tool by 700%</li>
-            <li>Co-author to <a class="regular-reference"
-                href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a> in IPDPS'20</li>
-          </ul>
-        </li>
-
-        <li>
-          <header>
-            <h3>LabStor</h3>
-            <h3>Spring 2022</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Designed/implemented a
-              <a class="regular-reference" href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic compression
-                system</a>
-              in C++
-            </li>
-            <li>Integrated this system into tool that buffers data in distributed storage systems</li>
-            <li>Improved performance of buffering tool by 700%</li>
-            <li>Co-author to <a class="regular-reference"
-                href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a> in IPDPS'20</li>
-          </ul>
-        </li>
-
-        <li>
-          <header>
-            <h3>Apollo</h3>
-            <h3>Spring 2022</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Designed/implemented a
-              <a class="regular-reference" href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic compression
-                system</a>
-              in C++
-            </li>
-            <li>Integrated this system into tool that buffers data in distributed storage systems</li>
-            <li>Improved performance of buffering tool by 700%</li>
-            <li>Co-author to <a class="regular-reference"
-                href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a> in IPDPS'20</li>
-          </ul>
-        </li>
-
-        <li>
-          <header>
-            <h3>HCompress</h3>
-            <h3>Summer 2019</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Designed/implemented a
-              <a class="regular-reference" href="https://bitbucket.org/scs-io/hcompress/src/master/">dynamic compression
-                system</a>
-              in C++
-            </li>
-            <li>Integrated this system into tool that buffers data in distributed storage systems</li>
-            <li>Improved performance of buffering tool by 700%</li>
-            <li>Co-author to <a class="regular-reference"
-                href="http://www.cs.iit.edu/~scs/assets/files/hcompress.pdf">publication</a> in IPDPS'20</li>
-          </ul>
-        </li>
-
-        <li>
-          <header>
-            <h3>The BOSSA Platform</h3>
-            <h3>2018 - 2020</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Improved the algorithm for estimating the position of a phone in a multi-story building</li>
-            <li>Created an
-              <a class="regular-reference" href="https://github.com/lukemartinlogan/bossa-test-app">Android app</a>
-              to poll bluetooth beacons and record their signal strengths
-            </li>
-            <li>Created
-              <a class="regular-reference" href="https://github.com/lukemartinlogan/bossa-test-algorithm">Python
-                scripts</a>
-              to download and analyze the bluetooth signals (SciPy, Pandas)
-            </li>
-            <li>Algorithm predicts the floor the user is on with 100% accuracy</li>
-            <li>Main author to
-              <a class="regular-reference"
-                href="https://ieeexplore-ieee-org.ezproxy.gl.iit.edu/document/9101391">publication</a>
-              and presenter in IEEE CQR'20
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <header>
-            <h3>Pothole Detectives</h3>
-            <h3>Spring 2019</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Designed/implemented an algorithm to find the best route to fill potholes in Chicago</li>
-            <li>Used OpenStreetMap to create a graph of Chicago</li>
-            <li>Used Python to find the route using reports from the Chicago Data Portal</li>
-            <li>Presented at ChiHackNight</li>
-          </ul>
-        </li>
-
-        <li>
-          <header>
-            <h3>Teaching Assistant for Computer Organization/Assembly Language</h3>
-            <h3>Spring 2017</h3>
-          </header>
-          <ul class="resume-info-list">
-            <li>Supervised labs and held office hours</li>
-            <li>Graded lab assignments</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <section id="awards" class="resume-section">
-      <h2>Awards</h2>
-      <ul class="resume-subsections">
-        <li>
-          <ul class="resume-info-list">
-            <li>Dean's List at IIT - (2016-2020)</li>
-            <li>Eagle Scout - (2016)</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <section id="personal" class="resume-section">
-      <h2>Personal</h2>
-      <ul class="resume-subsections">
-        <li>
-          <ul class="resume-info-list">
-            <li>Handbell Choir for St Andrew United Methodist Church (UMC) - (2008-2019)</li>
-            <li>Assistant leader for confirmation class at St. Andrew UMC - (2016)</li>
-            <li>Managed the construction of fence for local forest preserve - (2016)</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-  </main>
-
-  <aside class="download">
-    <a class="download" href="../assets/pdf/Luke-Logan-resume.pdf" download>
-      <h2 class="download">Download Resume PDF</h2>
-    </a>
-  </aside>
-
-  <footer class="navbar">
-    <ul>
-      <li>
-        <a href="https://github.com/lukemartinlogan/">
-          Github
-        </a>
-      </li>
-
-      <li>
-        <a href="https://www.linkedin.com/in/lukemartinlogan">
-          LinkedIn
-        </a>
-      </li>
-    </ul>
-  </footer>
-</body>
+    </footer>
+  </body>
 
 </html>
