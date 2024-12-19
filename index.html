@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <title>Luke Logan</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+    <meta name="viewport"
+      content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
 
   <body>
@@ -16,7 +19,7 @@
     <nav class="navbar">
       <ul>
         <li class="navbar-active">
-          <a href="">
+          <a href>
             Home
           </a>
         </li>
@@ -34,7 +37,8 @@
         </li>
 
         <li>
-          <a href="https://scholar.google.com/citations?hl=en&user=Ljn7CmYAAAAJ">
+          <a
+            href="https://scholar.google.com/citations?hl=en&user=Ljn7CmYAAAAJ">
             Google Scholar
           </a>
         </li>
@@ -56,7 +60,7 @@
             I am an HPC software engineer and PhD student with the Gnosis
             Research Center at Illinois Tech. My research aims to make
             distributed storage and operating systems more programmable,
-            portable, and performant. HPC and machine learning applications
+            portable, and performant. HPC and AI applications
             perform massive data movements, putting extreme stress on storage
             systems to satisfy a wide variety of conflicting I/O and
             computational objectives. However, with rapidly evolving storage
@@ -65,15 +69,18 @@
           </p>
 
           <p>
-            Other interests of mine are algorithm design and data science, which are both skills
-            that are useful to parallel/distributed processing research. I have been involved in
-            numerous projects surrounding parallel processing, algorithm design, and data science.
+            Other interests of mine are algorithm design and data science, which
+            are both skills
+            that are useful to parallel/distributed processing research. I have
+            been involved in
+            numerous projects surrounding parallel processing, algorithm design,
+            and data science.
             Projects I have worked on are listed below.
           </p>
         </div>
 
         <figure class="overview-img">
-          <img src="assets/img/my-picture.jpg" alt="An image of Luke Logan"/>
+          <img src="assets/img/my-picture.jpg" alt="An image of Luke Logan" />
           <figcaption>Me</figcaption>
         </figure>
       </div>
@@ -85,10 +92,49 @@
       <nav class="project-nav">
         <ul>
           <li>
-            <a href="http://www.cs.iit.edu/~scs/assets/projects/Hermes/Hermes.html">
+            <a
+              href="https://dl.acm.org/doi/10.1109/SC41406.2024.00114">
+              <h3>MegaMmap</h3>
+              <figure>
+                <img src="assets/img/megammap/arch.png"
+                  alt="MegaMmap diagram" />
+                <figcaption>
+                  MegaMmap diagram. </figcaption>
+              </figure>
+              <p>
+                Large-scale data analytics, scientific simulation, and deep
+                learning codes in HPC perform massive
+                computations on data
+                greatly exceeding the bounds of main memory. These out-of-core
+                algorithms suffer from severe data movement
+                penalties,
+                programming complexity, and limited code reuse. To solve this,
+                HPC sites have steadily increased DRAM
+                capacity. However,
+                this is not sustainable due to financial and environmental
+                costs. A more elegant, low-cost, and portable
+                solution is to
+                expand memory to distributed multi-tiered storage. In this work,
+                we propose MegaMmap: a software
+                distributed
+                shared
+                memory (DSM) that enlarges effective memory capacity through
+                intelligent tiered DRAM and storage
+                management. Evaluations show that various workloads can be
+                executed
+                with a fraction of the DRAM while offering
+                competitive
+                performance.
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://grc.iit.edu/docs/hermes/main-scenario">
               <h3>Hermes</h3>
               <figure>
-                <img src="assets/img/Hermes/Hermes.png" alt="Hermes diagram"/>
+                <img src="assets/img/Hermes/Hermes.png" alt="Hermes diagram" />
                 <figcaption> Hermes diagram. </figcaption>
               </figure>
               <p>
@@ -97,7 +143,8 @@
                 data. These data movements are typically the main bottleneck
                 of these applications. To reduce the gap between computation
                 and storage, HPC and Cloud sites have integrated fast tiers
-                of storage, known as the Deep Memory and Storage Hierarchy (DMSH).
+                of storage, known as the Deep Memory and Storage Hierarchy
+                (DMSH).
                 However, efficiently utilizing the DMSH is complex, especially
                 when heterogeneity is considered. Hermes is a new I/O buffering
                 platform that places, shuffles, and migrates data within the
@@ -109,10 +156,11 @@
           </li>
 
           <li>
-            <a href="https://github.com/scs-lab/labstor">
+            <a href="https://github.com/grc-iit/labstor">
               <h3>LabStor</h3>
               <figure>
-                <img src="assets/img/LabStor/LabStorComponents.png" alt="LabStor diagram"/>
+                <img src="assets/img/LabStor/LabStorComponents.png"
+                  alt="LabStor diagram" />
                 <figcaption> LabStor diagram. </figcaption>
               </figure>
               <p>
@@ -136,7 +184,8 @@
             <a href="https://ieeexplore.ieee.org/abstract/document/9555982">
               <h3>pMEMCPY</h3>
               <figure>
-                <img src="assets/img/pMEMCPY/pMEMCPY.png" alt="pMEMCPY diagram"/>
+                <img src="assets/img/pMEMCPY/pMEMCPY.png"
+                  alt="pMEMCPY diagram" />
                 <figcaption> pMEMCPY diagram. </figcaption>
               </figure>
               <p>
@@ -162,7 +211,7 @@
             <a href="https://ieeexplore.ieee.org/abstract/document/9556010">
               <h3>HFlow</h3>
               <figure>
-                <img src="assets/img/hflow/HFlow.png" alt="HFlow diagram"/>
+                <img src="assets/img/hflow/HFlow.png" alt="HFlow diagram" />
                 <figcaption> HFlow diagram. </figcaption>
               </figure>
               <p>
@@ -185,7 +234,7 @@
             <a href="https://dl.acm.org/doi/abs/10.1145/3431379.3460640">
               <h3>Apollo</h3>
               <figure>
-                <img src="assets/img/apollo/apollo.png" alt="Apollo diagram"/>
+                <img src="assets/img/apollo/apollo.png" alt="Apollo diagram" />
                 <figcaption> Apollo diagram. </figcaption>
               </figure>
               <p>
@@ -209,22 +258,27 @@
             <a href="https://ieeexplore.ieee.org/abstract/document/9139838">
               <h3>HCompress</h3>
               <figure>
-                <img src="assets/img/hcompress/HCompress2.png" alt="HCompress diagram"/>
+                <img src="assets/img/hcompress/HCompress2.png"
+                  alt="HCompress diagram" />
                 <figcaption> HCompress diagram. </figcaption>
               </figure>
               <p>
-                Modern scientific applications are bounded by data access speeds. HCompress is a C++
-                library for caching data in a heterogeneous distributed environment. It employs a
-                dynamic and adaptive compression system for matching compression libraries to
-                different storage devices using reinforcement learning. We found that HCompress
-                improved the performance of real-world workloads by as much as 700% relative to
+                Modern scientific applications are bounded by data access
+                speeds. HCompress is a C++
+                library for caching data in a heterogeneous distributed
+                environment. It employs a
+                dynamic and adaptive compression system for matching compression
+                libraries to
+                different storage devices using reinforcement learning. We found
+                that HCompress
+                improved the performance of real-world workloads by as much as
+                700% relative to
                 other modern storage solutions.
               </p>
             </a>
           </li>
         </ul>
       </nav>
-
 
       <article id="OtherProjects">
         <h2>Other Research Projects</h2>
@@ -235,17 +289,25 @@
               <a href="https://ieeexplore.ieee.org/abstract/document/9101391">
                 <h3>BOSSA</h3>
                 <figure>
-                  <img src="assets/img/bossa/quadrants.png" alt="BOSSA Platform figure" />
+                  <img src="assets/img/bossa/quadrants.png"
+                    alt="BOSSA Platform figure" />
                   <figcaption> BOSSA Platform </figcaption>
                 </figure>
                 <p>
-                  The FCC estimated that 10,000 lives could be saved annually if commercial mobile
-                  radio service (CMRS) providers were able to find the indoor location of emergency
-                  callers in a multi-story building. The BOSSA Platform is a proof-of-concept system
-                  that can find the indoor location of a cell phone using signals from Bluetooth Low
-                  Energy (BLE) beacons and a backend server for calculating indoor location based off
-                  of signal strengths. In our trials, we were able to estimate the floor the caller
-                  was on 100% of the time as well as the position on the floor to within 10 meters of
+                  The FCC estimated that 10,000 lives could be saved annually if
+                  commercial mobile
+                  radio service (CMRS) providers were able to find the indoor
+                  location of emergency
+                  callers in a multi-story building. The BOSSA Platform is a
+                  proof-of-concept system
+                  that can find the indoor location of a cell phone using
+                  signals from Bluetooth Low
+                  Energy (BLE) beacons and a backend server for calculating
+                  indoor location based off
+                  of signal strengths. In our trials, we were able to estimate
+                  the floor the caller
+                  was on 100% of the time as well as the position on the floor
+                  to within 10 meters of
                   accuracy.
                 </p>
               </a>
@@ -255,44 +317,52 @@
               <a href="projects/PotholeDetectives">
                 <h3>Pothole Detectives (PhDs)</h3>
                 <figure>
-                  <img src="assets/img/potholes/route.png" alt="Example pothole filling route"/>
+                  <img src="assets/img/potholes/route.png"
+                    alt="Example pothole filling route" />
                   <figcaption> Pothole route </figcaption>
                 </figure>
                 <p>
-                  Pothole damage costs US drivers $3 billion per year. In order to combat this
-                  problem, driverless pothole-filling robots will become reality. In this project, we
-                  developed a routing algorithm based off of a combination of the Chinese Postman
-                  Problem and the Traveling Salesman Problem. We used OpenStreetMap and Geopandas to
-                  obtain graphs of the wards of Chicago and used the Chicago Data Portal to get the
+                  Pothole damage costs US drivers $3 billion per year. In order
+                  to combat this
+                  problem, driverless pothole-filling robots will become
+                  reality. In this project, we
+                  developed a routing algorithm based off of a combination of
+                  the Chinese Postman
+                  Problem and the Traveling Salesman Problem. We used
+                  OpenStreetMap and Geopandas to
+                  obtain graphs of the wards of Chicago and used the Chicago
+                  Data Portal to get the
                   set of active pothole reports in Chicago.
                 </p>
               </a>
             </li>
           </ul>
         </nav>
-    </article>
+      </article>
 
-    <footer class="navbar">
-      <ul>
-        <li>
-          <a href="https://github.com/lukemartinlogan/">
-            Github
-          </a>
-        </li>
+      <footer class="navbar">
+        <ul>
+          <li>
+            <a href="https://github.com/lukemartinlogan/">
+              Github
+            </a>
+          </li>
 
-        <li>
-          <a href="https://scholar.google.com/citations?hl=en&user=Ljn7CmYAAAAJ">
-            Google Scholar
-          </a>
-        </li>
+          <li>
+            <a
+              href="https://scholar.google.com/citations?hl=en&user=Ljn7CmYAAAAJ">
+              Google Scholar
+            </a>
+          </li>
 
-        <li>
-          <a href="https://www.linkedin.com/in/lukemartinlogan">
-            LinkedIn
-          </a>
-        </li>
-      </ul>
-    </footer>
+          <li>
+            <a href="https://www.linkedin.com/in/lukemartinlogan">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </footer>
 
-  </body>
-</html>
+    </body>
+
+  </html>

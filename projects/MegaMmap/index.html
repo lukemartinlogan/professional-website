@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>MegaMmap</title>
+    <meta name="viewport"
+      content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+    <h1>MegaMmap</h1>
+
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="../../">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="../../resume">
+            Resume
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="overview">
+        <h2 class="project-h">Overview</h2>
+        <div class="overview-body">
+          <div class="overview-text">
+            <p class="project-p">
+              Large-scale data analytics, scientific simulation, and deep
+              learning codes in HPC perform massive
+              computations on data
+              greatly exceeding the bounds of main memory. These out-of-core
+              algorithms suffer from severe data movement
+              penalties,
+              programming complexity, and limited code reuse. To solve this, HPC
+              sites have steadily increased DRAM
+              capacity. However,
+              this is not sustainable due to financial and environmental costs.
+              A more elegant, low-cost, and portable
+              solution is to
+              expand memory to distributed multi-tiered storage. In this work,
+              we propose MegaMmap: a software distributed
+              shared
+              memory (DSM) that enlarges effective memory capacity through
+              intelligent tiered DRAM and storage management.
+              MegaMmap
+              provides workload-aware data organization, eviction, and
+              prefetching policies to reduce DRAM consumption
+              while ensuring
+              speedy access to critical data. A variety of memory coherence
+              optimizations are provided through an
+              intuitive hinting
+              system. Evaluations show that various workloads can be executed
+              with a fraction of the DRAM while offering
+              competitive
+              performance.
+            </p>
+          </div>
+
+          <figure class="overview-img">
+            <img src="../../assets/img/megammap/arch.png"
+              alt="MegaMmap diagram" />
+            <figcaption></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-section">
+        <h2 class="project-h">System Description</h2>
+
+        <ol class="project-phases">
+          <li class="project-phase">
+            <h3 class="project-phase-h">Distributed Memory and Storage Hierarchy
+              (DMSH)</h3>
+            <p class="project-p">
+              The DMSH represents the set of storage devices in a distributed
+              system. Storage
+              devices are grouped into tiers, and then into layers. A tier is a
+              set of devices with
+              similar architecture. For example, the set of all RAM devices in
+              the entire
+              distributed system would be in the RAM tier. Layers group devices
+              based on their
+              performance characteristics. For example, RAM-1600Mhz and
+              RAM-3200MHz would be in two
+              separate layers in the RAM tier.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">The API</h3>
+            <p class="project-p">
+              To give applications the illusion of a large memory, MegaMmap
+              implements a shared memory vector API,
+              providing
+              implementations of several functions and operators including array
+              index, memory copy, acquiring current
+              size,
+              appending, resizing, and destroying the data container. Processes
+              connect to the shared vector using a
+              semantic,
+              user-defined key common to all processes. The vector API is highly
+              versatile and allows more complex
+              distributed data
+              structures, such as matrices, logs, and multi-dimensional arrays,
+              to be developed using simple offset
+              calculations and
+              appends. Through C++ templating, MegaMmap can theoretically store
+              any type of data -- including complex C++
+              classes, so
+              long as a serialization method is provided. Unlike standard C++
+              vectors, MegaMmap shared vectors are not
+              destroyed in
+              the destructor -- users must explicitly destroy them. This is to
+              avoid the race condition where processes
+              finish at
+              separate times. Shared vectors can be either volatile or
+              nonvolatile, where volatile vectors store temporary
+              data that
+              is difficult to fit in memory and nonvolatile vectors represent
+              data that should eventually be persisted to
+              storage for
+              future use.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">System Monitor</h3>
+            <p class="project-p">
+              In the background, HCompress will gather statistics about the
+              tiers in the DMSH. It
+              will periodically determine a device's availability and current
+              capacity using
+              built-in tools like du and iostat.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Ares</h3>
+            <p class="project-p">
+              Ares is a compression service that unifies the interfaces of
+              multiple different
+              compression libraries: bzip2, zlib, huffman, brotli, bsc, lzma,
+              lz4, lzo, pithy,
+              snappy, and quicklz. When using the compression service, the user
+              must specify which
+              compression library they want to use, the data they want to
+              compress, and the size
+              of that data. Ares will allocate a buffer for storing the
+              compressed data and then
+              compress the input data by calling the chosen library from the
+              Compression Library
+              Pool. If the compression library ends up increasing the size of
+              the data, the
+              uncompressed data will be used instead. The buffer holding the
+              data to return will
+              be prepended with metadata including the uncompressed size of the
+              data and whether
+              or not the data is compressed. We do not store the compression
+              library used in the
+              metadata. We will assume the user remembers which library was used
+              to compress the
+              data when they go to decompress it.
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">HCDP</h3>
+            <p class="project-p">
+              The HCDP decides where to put data in the DMSH and which
+              compression libraries to
+              use when compressing the data. This computation is based off of
+              each device's
+              capacity and performance as well as each compression library's
+              performance and
+              estimated compression ratio. After finding the least costly data
+              placement, we
+              actually place the data there. When placing data in the DMSH, we
+              use HDF5 filters to
+              divide the dataset into 1MB chunks. The filter will compress each
+              chunk using Ares.
+            </p>
+
+            <p class="project-p"> The data placement is determined as follows:
+            </p>
+
+            <ul class="project-ul-math">
+              <li> \(S\) is the size of the data to be stored in DMSH</li>
+              <li> \(i\) is the tier</li>
+              <li> \(j\) is the compression library</li>
+              <li> \(dmsh(S, i, j)\) is the time it takes to store S bytes in
+                the DMSH starting from tier i using
+                compression j</li>
+              <li> \(tier(S, i, j)\) is the time it takes to store S bytes in
+                tier i using compression j</li>
+              <li> \(C_i\) is the capacity of tier i</li>
+              <li> \(R_i\) is the remaining capacity of tier i</li>
+              <li> \(B_i\) is the bandwidth of tier i</li>
+              <li> \(t_c(S, j)\) is the time it takes to compress S bytes of
+                data using compression j</li>
+              <li> \(r(j)\) is the compression ratio for compression j</li>
+              <li> \(t_d(S, j)\) is the time it takes to decompress S bytes of
+                data using compression j</li>
+              <li> \(S_j\) is the compressed size of S bytes using compression
+                j</li>
+              <li> \(w_1, w_2, w_3\) are user-defined weights</li>
+            </ul>
+
+            <p class="project-p-math">
+              $$ tier(S, i, j) = w_1 t_c(S, j) + S_j/B_i -
+              w_2(S_j/B_i)\frac{r(j)-1}{r(j)} + w_3 t_d(S_j, j) $$
+            </p>
+
+            <p class="project-p-math">
+              $$
+              \begin{equation*}
+              dmsh(S, i, j) = Min
+              \begin{cases}
+              tier(S, i, j) & S_j \lt R_i \\
+              tier(S, i, j) + dmsh(S_j - C_i, i+1, j) & R_i \lt S_j \leq C_i \\
+              tier(R_i, i, j) + dmsh(S_j - R_i, i+1, j) & C_i \lt S_j \\
+              dmsh(S, i, j+1) & \\
+              dmsh(S, i+1, j) & \\
+              \end{cases}
+              \end{equation*}
+              $$
+            </p>
+          </li>
+
+          <li class="project-phase">
+            <h3 class="project-phase-h">Compression Cost Predictor</h3>
+
+            <p class="project-p">
+              Every time a compression or decompression is made using the HCDP,
+              we record
+              the compression time, compression ratio, and the decompression
+              time.
+              Periodically, for each compression library, we will run a least
+              squares
+              regression using DLIB in order to estimate compression time,
+              compression
+              ratio, and decompression time in the HCDP.
+            </p>
+
+            <p class="project-p">The models we have for these are as
+              follows:</p>
+            <p class="project-p-math">
+              \(c_1, c_2, c_3\) are parameters we are trying to estimate
+              $$ t_c(S, j) = c_1 * S $$
+              $$ r(j) = c_2 $$
+              $$ t_d(S, j) = c_3 * S $$
+            </p>
+          </li>
+
+        </ol>
+      </section>
+    </main>
+
+    <footer class="navbar">
+      <ul>
+        <li>
+          <a href="https://github.com/lukemartinlogan/">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/lukemartinlogan">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+
+</html>
